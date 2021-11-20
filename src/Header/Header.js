@@ -1,16 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { GlobalContext } from "../context/GlobalState";
 import styles from "./Header.style";
 import { Icon } from "react-native-elements";
+import BasketModal from "../Modal/BasketModal";
 
 export default function Header() {
-  const [basketItems] = useContext(GlobalContext);
-
+  const [basketItems, setBasketItems] = useContext(GlobalContext);
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.header_container}>
+      <BasketModal
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        setBasketItems={setBasketItems}
+        basketItems={basketItems}
+      />
       <Text style={styles.header}>patikastore</Text>
-      <TouchableOpacity style={{ position: "relative" }}>
+      <TouchableOpacity
+        onPress={() => setModalVisible(true)}
+        style={{ position: "relative" }}>
         <Icon
           style={styles.shopping_cart}
           size={35}

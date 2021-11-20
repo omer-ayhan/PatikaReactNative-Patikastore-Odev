@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import SearchBar from "./SearchBar/SearchBar";
 import patistore_data from "./patistore_data.json";

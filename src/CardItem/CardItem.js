@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image } from "react-native";
 import { GlobalContext } from "../context/GlobalState";
 import { Icon } from "react-native-elements";
 import styles from "./CardItem.style";
