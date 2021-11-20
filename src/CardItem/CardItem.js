@@ -11,23 +11,16 @@ function CardItem({ cards }) {
       <View style={styles.button}>
         <Icon
           raised
-          name="shopping-basket"
-          type="font-awesome"
-          color="#f50"
+          name="add-shopping-cart"
+          type="material"
+          color="#800080"
           onPress={() => {
             // set the basketItems to the new value without duplicates
             setBasketItems([...new Set([...basketItems, cards])]);
           }}
         />
       </View>
-      {/* <TouchableOpacity style={styles.button}>
-        <Text style={styles.button_text}>Add To Basket</Text>
-      </TouchableOpacity> */}
-      <Image
-        // resizeMode="contain"
-        style={styles.image}
-        source={{ uri: cards.imgURL }}
-      />
+      <Image style={styles.image} source={{ uri: cards.imgURL }} />
       <Text style={styles.title}>{cards.title}</Text>
       <Text style={styles.price}>{cards.price}</Text>
     </View>
