@@ -6,7 +6,8 @@ import { Icon } from "react-native-elements";
 import BasketModal from "../Modal/BasketModal";
 
 export default function Header() {
-  const [basketItems, setBasketItems] = useContext(GlobalContext);
+  const { basketState } = useContext(GlobalContext);
+  const { basketItems, setBasketItems } = basketState;
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.header_container}>

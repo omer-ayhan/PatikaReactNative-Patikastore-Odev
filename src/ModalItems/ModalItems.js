@@ -5,7 +5,8 @@ import { GlobalContext } from "../context/GlobalState";
 import styles from "./ModalItems.style";
 
 export default function ModalItems({ modalData }) {
-  const [basketItems, setBasketItems] = useContext(GlobalContext);
+  const { basketState } = useContext(GlobalContext);
+  const { basketItems, setBasketItems } = basketState;
   return (
     <View style={styles.container}>
       <View style={styles.button}>

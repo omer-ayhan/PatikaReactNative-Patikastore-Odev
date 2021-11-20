@@ -3,14 +3,21 @@ import { View, FlatList, StyleSheet } from "react-native";
 import SearchBar from "./SearchBar/SearchBar";
 import patistore_data from "./patistore_data.json";
 import CardItem from "./CardItem";
-import ContextProvider from "./context/GlobalState";
+import { GlobalContext } from "./context/GlobalState";
 import Header from "./Header";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
   const renderCards = ({ item }) => <CardItem cards={item} />;
+  const [basketItems, setBasketItems] = useState([]);
+  const [shopItems, setShopItems] = useState(patistore_data);
+
   return (
-    <ContextProvider>
+    <GlobalContext.Provider
+      value={{
+        basketState: { basketItems, setBasketItems },
+        shopStates: [shopItems, setShopItems],
+      }}>
       <SafeAreaProvider>
         <View style={styles.root}>
           <Header />
@@ -19,12 +26,12 @@ export default function App() {
             numColumns={2}
             horizontal={false}
             keyExtractor={({ id }) => id.toString()}
-            data={patistore_data}
+            data={shopItems}
             renderItem={renderCards}
           />
         </View>
       </SafeAreaProvider>
-    </ContextProvider>
+    </GlobalContext.Provider>
   );
 }
 

@@ -5,7 +5,8 @@ import { Icon } from "react-native-elements";
 import styles from "./CardItem.style";
 
 function CardItem({ cards }) {
-  const [basketItems, setBasketItems] = useContext(GlobalContext);
+  const { basketState } = useContext(GlobalContext);
+  const { basketItems, setBasketItems } = basketState;
   return (
     <View style={styles.container}>
       <View style={styles.button}>
