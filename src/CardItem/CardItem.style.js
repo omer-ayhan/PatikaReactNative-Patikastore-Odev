@@ -2,9 +2,6 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    position: "relative",
-    top: 0,
-    left: 0,
     flex: 1,
     justifyContent: "space-between",
     width: "50%",
@@ -24,6 +21,12 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 20,
     color: "#888",
+  },
+  button: {
+    position: "absolute",
+    top: 15,
+    right: 15,
+    zIndex: 1,
   },
 });
 
