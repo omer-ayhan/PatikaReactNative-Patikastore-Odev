@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   badge: {
     width: 23,
     height: 23,
-    backgroundColor: "#ff0000",
+    backgroundColor: "#f44336",
     position: "absolute",
     top: -5,
     left: -8,
