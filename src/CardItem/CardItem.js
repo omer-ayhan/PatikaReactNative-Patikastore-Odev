@@ -25,6 +25,7 @@ function CardItem({ cards }) {
       <Image style={styles.image} source={{ uri: cards.imgURL }} />
       <Text style={styles.title}>{cards.title}</Text>
       <Text style={styles.price}>{cards.price}</Text>
+      {!cards.inStock && <Text style={styles.inStock}>Stokta Yok</Text>}
     </View>
   );
 }

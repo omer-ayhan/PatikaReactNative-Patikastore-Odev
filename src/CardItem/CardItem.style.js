@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
     right: 15,
     zIndex: 1,
   },
+  inStock: {
+    fontSize: 20,
+    color: "#f44336",
+    fontWeight: "bold",
+  },
 });
 
 export default styles;
