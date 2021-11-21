@@ -1,4 +1,4 @@
-# Patistore React Native App
+# Patikastore React Native App
 
 Try It Out 💻 => https://snack.expo.dev/@omer_ayhan/patistore-app
 
