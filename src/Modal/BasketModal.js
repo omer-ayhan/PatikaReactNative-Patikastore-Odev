@@ -68,7 +68,7 @@ export default function BasketModal({
                   if (basketItems.length > 0) {
                     setBasketItems([]);
                     setModalVisible(!modalVisible);
-                    Alert.alert("Ödeme Yapıldı");
+                    Alert.alert("Ödeme Yapıldı ✅");
                   } else {
                     Alert.alert(
                       "Satın alma işlemi için lütfen sepete ürün ekleyiniz"
