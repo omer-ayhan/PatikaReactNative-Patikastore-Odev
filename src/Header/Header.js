@@ -6,11 +6,12 @@ import { Icon } from "react-native-elements";
 import BasketModal from "../Modal/BasketModal";
 
 export default function Header() {
-  const { basketState } = useContext(GlobalContext);
-  const { basketItems, setBasketItems } = basketState;
-  const [modalVisible, setModalVisible] = useState(false);
+  const { basketState } = useContext(GlobalContext); // global basketState variable
+  const { basketItems, setBasketItems } = basketState; // destructuring global basketState variable
+  const [modalVisible, setModalVisible] = useState(false); // modal visibility state
   return (
     <View style={styles.header_container}>
+      {/* setting up props for BasketModal */}
       <BasketModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
@@ -18,6 +19,7 @@ export default function Header() {
         basketItems={basketItems}
       />
       <Text style={styles.header}>patikastore</Text>
+      {/* if clicked it will show BasketModal */}
       <TouchableOpacity
         onPress={() => setModalVisible(true)}
         style={{ position: "relative" }}>

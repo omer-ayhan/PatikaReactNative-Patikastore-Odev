@@ -6,7 +6,7 @@ import styles from "./SearchBar.style";
 
 function SearchBar() {
   const { shopStates } = useContext(GlobalContext); // global shopStates variable
-  const { setShopItems } = shopStates; // destructuring global setShopItems variable
+  const { setShopItems } = shopStates; // destructuring global shopStates variable
 
   const searchFilterFunction = (text) => {
     const newData = patistore_data.filter((item) => {

@@ -5,8 +5,8 @@ import { Icon } from "react-native-elements";
 import styles from "./CardItem.style";
 
 function CardItem({ cards }) {
-  const { basketState } = useContext(GlobalContext);
-  const { basketItems, setBasketItems } = basketState;
+  const { basketState } = useContext(GlobalContext); // global basketState variable
+  const { basketItems, setBasketItems } = basketState; // destructuring global basketState variable
   return (
     <View style={styles.container}>
       <View style={styles.button}>
@@ -17,6 +17,7 @@ function CardItem({ cards }) {
           color="#800080"
           onPress={() => {
             // set the basketItems to the new value without duplicates
+            // Set will help us to avoid duplicates
             setBasketItems([...new Set([...basketItems, cards])]);
           }}
         />

@@ -20,22 +20,24 @@ export default function BasketModal({
   basketItems,
   setBasketItems,
 }) {
-  const renderItem = ({ item }) => <ModalItems modalData={item} />;
+  const renderItem = ({ item }) => <ModalItems modalData={item} />; //render function for modal items
 
   return (
     <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
+      animationType="slide" //modal animation type
+      transparent={true} //modal background transparency
+      visible={modalVisible} //modal visibility status
       onRequestClose={() => {
-        setModalVisible(!modalVisible);
+        setModalVisible(!modalVisible); //set modal visibility status
       }}>
       <TouchableOpacity
         style={styles.container}
         activeOpacity={1}
+        // set modal visibility status to false when user taps outside of modal
         onPressOut={() => setModalVisible(false)}>
         <TouchableWithoutFeedback>
           <View style={styles.modalView}>
+            {/* if basketItems is empty, it will show an illustration instead of blank space */}
             {basketItems.length > 0 ? (
               <FlatList
                 data={basketItems}
@@ -55,6 +57,7 @@ export default function BasketModal({
               </View>
             )}
             <View style={styles.button_container}>
+              {/* button for hiding modal */}
               <Pressable
                 style={[styles.button, { backgroundColor: "#f0f0f0" }]}
                 onPress={() => setModalVisible(!modalVisible)}>
@@ -62,6 +65,7 @@ export default function BasketModal({
                   Pencereyi Gizle
                 </Text>
               </Pressable>
+              {/* button for clearing modal items */}
               <Pressable
                 style={[styles.button]}
                 onPress={() => {

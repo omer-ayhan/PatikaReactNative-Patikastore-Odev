@@ -7,7 +7,7 @@ import styles from "./ModalItems.style";
 // modalData prop is an array of objects
 export default function ModalItems({ modalData }) {
   const { basketState } = useContext(GlobalContext); // global basketState variable
-  const { basketItems, setBasketItems } = basketState; // destructuring global basketItems variable
+  const { basketItems, setBasketItems } = basketState; // destructuring global basketState variable
   return (
     // activeOpacity={1} will keep opacity at 1 in all cases
     <TouchableOpacity activeOpacity={1} style={styles.container}>
