@@ -16,7 +16,7 @@ export default function App() {
     <GlobalContext.Provider
       value={{
         basketState: { basketItems, setBasketItems },
-        shopStates: [shopItems, setShopItems],
+        shopStates: { shopItems, setShopItems },
       }}>
       <SafeAreaProvider>
         <View style={styles.root}>
