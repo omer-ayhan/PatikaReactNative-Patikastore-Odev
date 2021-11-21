@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { GlobalContext } from "../context/GlobalState";
 import styles from "./Header.style";
 import { Icon } from "react-native-elements";
 import BasketModal from "../Modal/BasketModal";
 
-export default function Header() {
+function Header() {
   const { basketState } = useContext(GlobalContext); // global basketState variable
   const { basketItems, setBasketItems } = basketState; // destructuring global basketState variable
   const [modalVisible, setModalVisible] = useState(false); // modal visibility state
@@ -37,3 +37,5 @@ export default function Header() {
     </View>
   );
 }
+
+export default memo(Header);

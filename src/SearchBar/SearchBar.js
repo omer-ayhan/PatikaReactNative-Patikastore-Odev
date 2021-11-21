@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, TextInput } from "react-native";
 import patistore_data from "../patistore_data.json";
 import styles from "./SearchBar.style";
@@ -24,4 +24,4 @@ function SearchBar({ setShopItems }) {
   );
 }
 
-export default SearchBar;
+export default memo(SearchBar);
