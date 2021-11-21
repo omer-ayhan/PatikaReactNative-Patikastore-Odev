@@ -4,10 +4,12 @@ import { Icon } from "react-native-elements";
 import { GlobalContext } from "../context/GlobalState";
 import styles from "./ModalItems.style";
 
+// modalData prop is an array of objects
 export default function ModalItems({ modalData }) {
-  const { basketState } = useContext(GlobalContext);
-  const { basketItems, setBasketItems } = basketState;
+  const { basketState } = useContext(GlobalContext); // global basketState variable
+  const { basketItems, setBasketItems } = basketState; // destructuring global basketItems variable
   return (
+    // activeOpacity={1} will keep opacity at 1 in all cases
     <TouchableOpacity activeOpacity={1} style={styles.container}>
       <View style={styles.button}>
         <Icon
@@ -17,6 +19,7 @@ export default function ModalItems({ modalData }) {
           color="#800080"
           onPress={() =>
             // filter basketItems and set the new basketItems
+            // delete functionality for each basket item
             setBasketItems(
               basketItems.filter((item) => item.id !== modalData.id)
             )
