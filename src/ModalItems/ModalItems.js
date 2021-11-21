@@ -8,6 +8,13 @@ import styles from "./ModalItems.style";
 export default function ModalItems({ modalData }) {
   const { basketState } = useContext(GlobalContext); // global basketState variable
   const { basketItems, setBasketItems } = basketState; // destructuring global basketState variable
+
+  const deleteBasketItem = () => {
+    // filter basketItems and set the new basketItems
+    // delete functionality for each basket item
+    setBasketItems(basketItems.filter((item) => item.id !== modalData.id));
+  };
+
   return (
     // activeOpacity={1} will keep opacity at 1 in all cases
     <TouchableOpacity activeOpacity={1} style={styles.container}>
@@ -17,13 +24,7 @@ export default function ModalItems({ modalData }) {
           name="delete"
           type="material"
           color="#800080"
-          onPress={() =>
-            // filter basketItems and set the new basketItems
-            // delete functionality for each basket item
-            setBasketItems(
-              basketItems.filter((item) => item.id !== modalData.id)
-            )
-          }
+          onPress={deleteBasketItem}
         />
       </View>
       <Image style={styles.image} source={{ uri: modalData.imgURL }} />

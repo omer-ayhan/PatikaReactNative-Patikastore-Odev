@@ -21,15 +21,24 @@ export default function BasketModal({
   setBasketItems,
 }) {
   const renderItem = ({ item }) => <ModalItems modalData={item} />; //render function for modal items
+  const modalHide = () => setModalVisible(!modalVisible); //set modal visibility status
+  const modalCheckout = () => {
+    // for clearing modal items
+    if (basketItems.length > 0) {
+      setBasketItems([]);
+      setModalVisible(!modalVisible);
+      Alert.alert("Ödeme Yapıldı ✅");
+    } else {
+      Alert.alert("Satın alma işlemi için lütfen sepete ürün ekleyiniz");
+    }
+  };
 
   return (
     <Modal
       animationType="slide" //modal animation type
       transparent={true} //modal background transparency
       visible={modalVisible} //modal visibility status
-      onRequestClose={() => {
-        setModalVisible(!modalVisible); //set modal visibility status
-      }}>
+      onRequestClose={modalHide}>
       <TouchableOpacity
         style={styles.container}
         activeOpacity={1}
@@ -60,25 +69,12 @@ export default function BasketModal({
               {/* button for hiding modal */}
               <Pressable
                 style={[styles.button, { backgroundColor: "#f0f0f0" }]}
-                onPress={() => setModalVisible(!modalVisible)}>
+                onPress={modalHide}>
                 <Text style={[styles.button_text, { color: "#000" }]}>
                   Pencereyi Gizle
                 </Text>
               </Pressable>
-              {/* button for clearing modal items */}
-              <Pressable
-                style={[styles.button]}
-                onPress={() => {
-                  if (basketItems.length > 0) {
-                    setBasketItems([]);
-                    setModalVisible(!modalVisible);
-                    Alert.alert("Ödeme Yapıldı ✅");
-                  } else {
-                    Alert.alert(
-                      "Satın alma işlemi için lütfen sepete ürün ekleyiniz"
-                    );
-                  }
-                }}>
+              <Pressable style={[styles.button]} onPress={modalCheckout}>
                 <Text style={styles.button_text}>Ödeme Yap</Text>
               </Pressable>
             </View>

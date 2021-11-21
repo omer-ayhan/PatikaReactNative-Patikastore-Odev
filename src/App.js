@@ -9,6 +9,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
   const renderCards = ({ item }) => <CardItem cards={item} />;
+  const extractKey = ({ id }) => id.toString();
   // global state for basket items
   const [basketItems, setBasketItems] = useState([]);
   // global state for main patistore data
@@ -24,11 +25,11 @@ export default function App() {
       <SafeAreaProvider>
         <SafeAreaView style={styles.root}>
           <Header />
-          <SearchBar />
+          <SearchBar setShopItems={setShopItems} />
           <FlatList
             numColumns={2} // 2 cards in a row
             horizontal={false} // must be if numColumns is used
-            keyExtractor={({ id }) => id.toString()} // keyExtractor is used to identify each item
+            keyExtractor={extractKey} // keyExtractor is used to identify each item
             data={shopItems} // source of the FlatList
             renderItem={renderCards} // renderCards is used to render each item
           />
