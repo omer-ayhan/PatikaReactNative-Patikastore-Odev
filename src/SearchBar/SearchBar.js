@@ -5,22 +5,22 @@ import patistore_data from "../patistore_data.json";
 import styles from "./SearchBar.style";
 
 function SearchBar() {
-  const { shopStates } = useContext(GlobalContext);
-  const { setShopItems } = shopStates;
+  const { shopStates } = useContext(GlobalContext); // global shopStates variable
+  const { setShopItems } = shopStates; // destructuring global setShopItems variable
 
   const searchFilterFunction = (text) => {
     const newData = patistore_data.filter((item) => {
-      const itemData = `${item.title.toUpperCase()}`;
-      const textData = text.toUpperCase();
-      return itemData.includes(textData);
+      const itemData = `${item.title.toUpperCase()}`; // turning item title to uppercase for case-insensitive search
+      const textData = text.toUpperCase(); // turning text parameter to uppercase for case-insensitive search
+      return itemData.includes(textData); // returns true if itemData includes textData or if textData is an empty string
     });
-    setShopItems(newData);
+    setShopItems(newData); // after filter process is done, set newData to shopStates
   };
 
   return (
     <View style={styles.container}>
       <TextInput
-        onChangeText={(text) => searchFilterFunction(text)}
+        onChangeText={(text) => searchFilterFunction(text)} // onChangeText is a callback function that gives input text as a parameter
         style={styles.textInput}
         placeholder="Ara..."
       />
