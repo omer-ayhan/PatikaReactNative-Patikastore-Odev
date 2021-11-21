@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, SafeAreaView } from "react-native";
 import SearchBar from "./SearchBar/SearchBar";
 import patistore_data from "./patistore_data.json";
 import CardItem from "./CardItem";
@@ -22,7 +22,7 @@ export default function App() {
         shopStates: { shopItems, setShopItems },
       }}>
       <SafeAreaProvider>
-        <View style={styles.root}>
+        <SafeAreaView style={styles.root}>
           <Header />
           <SearchBar />
           <FlatList
@@ -32,7 +32,7 @@ export default function App() {
             data={shopItems} // source of the FlatList
             renderItem={renderCards} // renderCards is used to render each item
           />
-        </View>
+        </SafeAreaView>
       </SafeAreaProvider>
     </GlobalContext.Provider>
   );

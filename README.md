@@ -16,6 +16,6 @@ for further information: https://reactnative.dev/docs/environment-setup
 
 ---
 
-- State management: React Context API
+- Global State management: React Context API
 - Icons: [React Native Elements](https://reactnativeelements.com/)
 - Illustration: <a href="https://www.flaticon.com/authors/ladalle-cs" title="Ladalle CS">Author: Ladalle CS</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
