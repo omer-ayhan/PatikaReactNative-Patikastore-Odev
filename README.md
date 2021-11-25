@@ -6,7 +6,7 @@ Try It Out 💻 => https://snack.expo.dev/@omer_ayhan/patistore-app
 
 ---
 
-- Create a folder then `git pull <My Repository Adress>` to pull github repository
+- Create a folder then `git clone <My Repository Adress>` to pull github repository
 - `npm install` for installing all the dependencies
 - start your emulator or connect your physical device then start `npm run android/ios(depending on your device)`
 
